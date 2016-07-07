@@ -1,0 +1,18 @@
+<meta charset="utf-8"></meta>
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+
+var hiddenProperty = 'hidden' in document ? 'hidden' :
+        'webkitHidden' in document ? 'webkitHidden' :
+                null;
+var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+var onVisibilityChange = function(){
+    if (document[hiddenProperty]) {
+        console.log('页面非激活');
+    }else{
+        console.log('页面激活')
+    }
+};
+$(document).on(visibilityChangeEvent, onVisibilityChange);
+</script>
